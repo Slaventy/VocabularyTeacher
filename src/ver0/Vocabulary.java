@@ -1,24 +1,28 @@
 package ver0;
 
+import java.util.Map;
+
 /**
  * Абстрактный словарь любого языка
  */
 abstract class Vocabulary  implements Book{
 
     //словарь в виде массива строк
-    String[][] VocStrings;
+    private Map<String, String> mapStrings;    //коллекция для пары ключ(уникальный) - значение
 
-    //установка словаря
-    abstract void setVoc(String[][] voc);
 
+    Map<String, String> getVocabulary (){
+        return mapStrings;
+    }
+
+    void setVocabulary(Map<String, String> map){
+        mapStrings = map;
+    }
     @Override
     public String toString() {
         StringBuilder out = new StringBuilder();
-        for (String[] vocString : VocStrings) {
-            for (String s : vocString) {
-                out.append(s).append(" ");
-            }
-            out.append("\n");
+        for (Map.Entry entry : getVocabulary().entrySet()) {
+            out.append(entry.getKey()).append(" ").append(entry.getValue()).append("\n");
         }
         return out.toString();
     }

@@ -1,7 +1,8 @@
 package ver0;
 
-import java.util.Random;
-import java.util.Scanner;
+import org.jetbrains.annotations.Contract;
+
+import java.util.*;
 
 /**
  *
@@ -13,6 +14,7 @@ class TeacherWithVocabulary {
     private Vocabulary vocabulary;
 
     //Связываем учителя и словарь
+    @Contract(pure = true)
     TeacherWithVocabulary(Vocabulary voc){
         vocabulary=voc;
     }
@@ -20,30 +22,23 @@ class TeacherWithVocabulary {
     //запуск обучения
     void start(){
         Random rndI = new Random();
-        Random rndJ = new Random();
-        int i, j;
+
         do{
-            i = rndI.nextInt(vocabulary.VocStrings.length);
-            j = rndJ.nextInt(vocabulary.VocStrings[0].length);
-            System.out.println("Напишите перевод слова: " + vocabulary.VocStrings[i][j]);
+            List<String> keys = new ArrayList<>(vocabulary.getVocabulary().keySet());
+            String       randomKey = keys.get( rndI.nextInt(keys.size()) );
+            String       value     = vocabulary.getVocabulary().get(randomKey);
+            System.out.println("Напишите перевод слова: " + randomKey);
             Scanner sc = new Scanner(System.in);
             String answer = sc.next();
             if (answer.equals("exit")){
                 return;
             }
-            if(j == 0){
-                if (answer.equals(vocabulary.VocStrings[i][j+1])){
-                    System.out.println("верно");
-                }else {
-                    System.out.println("неверно");
-                }
-            } else {
-                if (answer.equals(vocabulary.VocStrings[i][j-1])){
-                    System.out.println("верно");
-                }else {
-                    System.out.println("неверно");
-                }
+            if (value.equals(answer)){
+                System.out.println("Верно");
+            }else {
+                System.out.println("Не верно");
             }
+
         }while (true);
     }
 

@@ -1,26 +1,25 @@
 package ver0;
 
+import org.jetbrains.annotations.NotNull;
+
+import java.util.HashMap;
+import java.util.Map;
+
 class EnglishVocabulary extends Vocabulary {
 
-    EnglishVocabulary() {
-        //мой словарик слов
-        String[][] Dic = {{"boy", "мальчик"},
-                {"men", "человек"},
-                {"port", "порт"},
-                {"set", "установка"},
-                {"reset", "сброс"},
-                {"camera", "камера"},
-                {"number", "число"},
-                {"foot", "нога"},
-                {"black", "черный"},
-                {"white", "белый"}
-        };
-
-        setVoc(Dic);
+    //конструктор для массива строк
+    EnglishVocabulary(@NotNull String[][] Dic) {
+        Map<String, String > map = new HashMap<>();
+        for (int i = 0, j = 0; i < Dic.length; i++){
+            map.put(Dic[i][j], Dic[i][j+1]);
+            j = 0;
+        }
+        setVocabulary(map);
     }
 
-    //установка словаря
-    void setVoc(String[][] voc) {
-        VocStrings = voc.clone();
+    //конструктор для коллекции
+    EnglishVocabulary(Map<String, String> map) {
+        setVocabulary(map);
     }
+
 }
