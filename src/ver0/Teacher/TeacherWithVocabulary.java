@@ -1,63 +1,51 @@
 package ver0.Teacher;
 
-import ver0.Interface.Consol;
-import ver0.Interface.RndClass;
-import ver0.Tests.TestVoc;
-import ver0.Vocabulary.EnglishVocabulary;
+import ver0.Interface.ConsolMenu;
+import ver0.Interface.LogicInConsol;
 import ver0.Vocabulary.Vocabulary;
 
 
 public class TeacherWithVocabulary {
     /**поле для хранения любого словаря*/
     private Vocabulary vocabulary;  //словарь
-    private Consol consol = new Consol();   //класс для работы с консоль
-    private RndClass rndClass = new RndClass();     //класс для случайной выборки из словаря
+    private static TeacherWithVocabulary teacherWithVocabulary; //поле для хранения единственного объекта
 
-    private static TeacherWithVocabulary teacherWithVocabulary;
-
-    /**Связываем учителя и словарь*/
+    /**конструктор*/
     private TeacherWithVocabulary(){
-        startInConsole();
     }
 
-    public static void getTeacherWithVocabulary(){
+    /**метод получения единственного объекта*/
+    public static TeacherWithVocabulary getTeacherWithVocabulary(){
         if (teacherWithVocabulary == null){
             teacherWithVocabulary = new TeacherWithVocabulary();
         }
-        teacherWithVocabulary.startInConsole();
+        return teacherWithVocabulary;
     }
 
-    private void startInConsole(){
-        System.out.println("1 - будем работать в консоли с англо-русским словарем");
-        System.out.println("2 - выход");
-        switch (Integer.valueOf(consol.getConsole())){
-            case(1):{
-                vocabulary = new EnglishVocabulary(TestVoc.Dic);
-            }
-            case(2):{
-                System.out.println("выходим");
-                break;
-            }
+    /**связь словаря и учителя*/
+    public void setVocabulary(Vocabulary voc){
+        vocabulary = voc;
+    }
+
+    /**начало */
+    public void Start(){
+        if (ConsolMenu.getConsolMenu().MenuConsolOrWindow()){
+            return;
         }
-        String val, con;
-        do {
-            val = rndClass.getRndValMapVoc(vocabulary);
-            consol.sendConsole("Напишите перевод слова " + val);
-            con = consol.getConsole();
-            if (con.equals("exit")){
-                consol.sendConsole("exiting");
-                return;
-            }
-            if (val.equals(vocabulary.getVocabulary().get(con))){
-                consol.sendConsole("Верно");
-            }else {
-                consol.sendConsole("Не верно");
-            }
-        }while (true);
-
+        ConsolMenu.getConsolMenu().MenuTeacherOrShowVocabulary();
     }
-//    /**выводим весь словарь*/
-//    private void outVocabulary(){
-//        System.out.println(vocabulary);
-//    }
+
+    /**начало в консоле*/
+    public void startInConsole(){
+        new LogicInConsol().start();
+    }
+
+    /**выводим весь словарь*/
+    public void outVocabulary(){
+        System.out.println(vocabulary);
+    }
+    /**Для получения словаря*/
+    public Vocabulary getVocabulary() {
+        return vocabulary;
+    }
 }

@@ -2,12 +2,25 @@ package ver0.Interface;
 
 import java.util.Scanner;
 
- public class Consol {
+ class Consol {
      private Scanner scanner = new Scanner(System.in);
-    public String getConsole(){
-        return scanner.next();
+     private static Consol consol;
+
+     private Consol(){
+
+     }
+
+    static Consol getConsole(){
+         if (consol == null){
+             consol = new Consol();
+         }
+        return consol;
     }
-    public void sendConsole(String string){
+
+    String getConsoleString(){
+         return consol.scanner.next();
+    }
+    void sendConsole(String string){
         System.out.println(string);
     }
 }

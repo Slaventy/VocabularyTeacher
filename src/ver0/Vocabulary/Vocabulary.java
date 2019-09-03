@@ -20,6 +20,8 @@ public abstract class Vocabulary  implements Book {
     void setVocabulary(Map<String, String> map){
         mapStrings = map;
     }
+
+
     /** для правильного отображения переопределен метод*/
     @Override
     public String toString() {
