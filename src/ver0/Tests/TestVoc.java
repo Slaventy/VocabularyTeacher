@@ -1,12 +1,9 @@
-package ver0;
+package ver0.Tests;
 
-import java.util.HashMap;
-import java.util.Map;
-
-class TestVoc {
+public class TestVoc {
 
     //мой словарик слов
-    String[][] Dic = {{"boy", "мальчик"},
+    public static String[][] Dic = {{"boy", "мальчик"},
             {"men", "человек"},
             {"port", "порт"},
             {"set", "установка"},
@@ -17,13 +14,4 @@ class TestVoc {
             {"black", "черный"},
             {"white", "белый"}
     };
-
-    Map<String, String > map = new HashMap<>();
-
-    TestVoc(){
-        for (int i = 0, j = 0; i < Dic.length; i++){
-            map.put(Dic[i][j], Dic[i][j+1]);
-            j = 0;
-        }
-    }
 }
