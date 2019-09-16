@@ -9,10 +9,10 @@ public class LogicInConsol {
 public void start(){
     String val, con;
     do {
-        val = rndClass.getRndValMapVoc(TeacherWithVocabulary.getTeacherWithVocabulary().getVocabulary());
+        val = rndClass.getRndValMapVoc(TeacherWithVocabulary.getTeacherWithVocabulary().getVocabulary()).toLowerCase();
         Consol.getConsole().sendConsole("Для выхода введите \"exit\"\nНапишите перевод слова " + val);
-        con = Consol.getConsole().getConsoleString();
-        if (con.equals("exit")){
+        con = Consol.getConsole().getConsoleString().toLowerCase();
+        if ((con.toLowerCase()).equals("exit")){
             Consol.getConsole().sendConsole("exiting");
             return;
         }
@@ -21,6 +21,7 @@ public void start(){
         }else {
             Consol.getConsole().sendConsole("Не верно");
         }
+        Consol.getConsole().clsConsole();
     }while (true);
 
 }

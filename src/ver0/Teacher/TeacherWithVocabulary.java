@@ -27,6 +27,11 @@ public class TeacherWithVocabulary {
         vocabulary = voc;
     }
 
+//    public void StartInWindows(){
+//        WinInterf winInterf = new WinInterf();
+//        winInterf.run();
+//        winInterf.setVisible(true);
+//    }
     /**начало */
     public void Start(){
         if (ConsolMenu.getConsolMenu().MenuConsolOrWindow()){

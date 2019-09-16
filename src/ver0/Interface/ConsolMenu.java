@@ -20,20 +20,26 @@ public class ConsolMenu {
             System.out.println("1 - будем работать в консоли с англо-русским словарем");
             System.out.println("2 - будем работать в окне с англо-русским словарем");
             System.out.println("3 - выход");
+            try {
+                switch (Integer.parseInt(consol.getConsoleString())) {
+                    case (1): {
+                        //берем учителя, загружем словарь в который грузим тестовую выборку
+                        TeacherWithVocabulary.getTeacherWithVocabulary().setVocabulary(new EnglishVocabulary(TestVoc.Dic));
+                        return false;
+                    }
+                    case (2): {
 
-            switch (Integer.valueOf(consol.getConsoleString())) {
-                case (1): {
-                    TeacherWithVocabulary.getTeacherWithVocabulary().setVocabulary(new EnglishVocabulary(TestVoc.Dic));
-                    return false;
+                    }
+                    case (3): {
+                        System.out.println("выходим");
+                        return true;
+                    }
                 }
-                case (2): {
-
-                }
-                case (3): {
-                    System.out.println("выходим");
-                    return true;
-                }
+            }catch (NumberFormatException ex){
+                System.out.println();
             }
+            consol.clsConsole();
+            System.out.println("Введите номер выбранной позиции");
         }
     }
 
@@ -42,20 +48,25 @@ public class ConsolMenu {
             System.out.println("1 - перейдем к учебе");
             System.out.println("2 - посмотрим слова в словаре");
             System.out.println("3 - выход");
-            switch (Integer.valueOf(consol.getConsoleString())){
-                case (1):{
-                    TeacherWithVocabulary.getTeacherWithVocabulary().startInConsole();
-                    return ;
+            try {
+                switch (Integer.parseInt(consol.getConsoleString())){
+                    case (1):{
+                        TeacherWithVocabulary.getTeacherWithVocabulary().startInConsole();
+                        return ;
+                    }
+                    case (2):{
+                        TeacherWithVocabulary.getTeacherWithVocabulary().outVocabulary();
+                        break;
+                    }
+                    case (3):{
+                        return ;
+                    }
                 }
-                case (2):{
-                    TeacherWithVocabulary.getTeacherWithVocabulary().outVocabulary();
-                    break;
-                }
-                case (3):{
-
-                    return ;
-                }
+            }catch (NumberFormatException ex){
+                System.out.println();
             }
+            consol.clsConsole();
+            System.out.println("Введите номер выбранной позиции");
         }
     }
 }

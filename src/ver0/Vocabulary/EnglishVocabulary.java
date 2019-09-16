@@ -1,7 +1,6 @@
 package ver0.Vocabulary;
 
 import org.jetbrains.annotations.NotNull;
-import ver0.Vocabulary.Vocabulary;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -20,10 +19,10 @@ public class EnglishVocabulary extends Vocabulary implements Serializable {
         setVocabulary(map);
     }
 
-    /**конструктор для коллекции*/
-    EnglishVocabulary(Map<String, String> map) {
-        setVocabulary(map);
-    }
+//    /**конструктор для коллекции*/
+//    EnglishVocabulary(Map<String, String> map) {
+//        setVocabulary(map);
+//    }
 
 //    /**при использовании конструктора без параметров
 //     * он запрашивает путь откуда загрузить словарь*/

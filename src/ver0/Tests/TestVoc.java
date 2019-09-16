@@ -1,9 +1,9 @@
 package ver0.Tests;
-
+/**класс предоставляет тестовый набот слов в виде массива строк*/
 public class TestVoc {
-
-    //мой словарик слов
-    public static String[][] Dic = {{"boy", "мальчик"},
+    //мой тестовый словарик слов
+    public static String[][] Dic = {
+            {"boy", "мальчик"},
             {"men", "человек"},
             {"port", "порт"},
             {"set", "установка"},
