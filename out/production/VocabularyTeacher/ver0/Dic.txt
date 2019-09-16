@@ -1,2 +1,0 @@
-String Строка
-Strings Строки
