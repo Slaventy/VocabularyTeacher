@@ -1,6 +1,5 @@
 package ver0_1.Teacher;
 
-import org.jetbrains.annotations.Contract;
 import ver0_1.Interface.Consol;
 import ver0_1.Vocabulary.VocabularyWithWords;
 import ver0_1.Vocabulary.Word;
@@ -10,10 +9,9 @@ import java.util.Arrays;
 
 public class Teacher {
 
-    private VocabularyWithWords vocabulary;//словарь слов
+    private final VocabularyWithWords vocabulary;//словарь слов
 
 
-    @Contract(pure = true)
     public Teacher(VocabularyWithWords vocabularyWithWords){
         this.vocabulary = vocabularyWithWords;
     }
@@ -33,12 +31,11 @@ public class Teacher {
             if (word.getTranslate().equals(translate)){
                 Consol.getConsole().sendConsole("Верно");
                 word.addAssessment();
-                Consol.getConsole().sendConsole(word.toString());
             }else {
                 Consol.getConsole().sendConsole("Не верно");
                 word.subAssessment();
-                Consol.getConsole().sendConsole(word.toString());
             }
+            Consol.getConsole().sendConsole(word.toString());
 
         }while (true);
     }

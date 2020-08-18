@@ -1,6 +1,5 @@
 package ver0.Vocabulary;
 
-import org.jetbrains.annotations.NotNull;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -10,7 +9,7 @@ import java.util.Map;
 public class EnglishVocabulary extends Vocabulary implements Serializable {
 
     /**конструктор для массива строк*/
-    public EnglishVocabulary(@NotNull String[][] Dic) {
+    public EnglishVocabulary(String[][] Dic) {
         Map<String, String > map = new HashMap<>();
         for (int i = 0, j = 0; i < Dic.length; i++){
             map.put(Dic[i][j], Dic[i][j+1]);

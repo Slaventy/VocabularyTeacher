@@ -1,6 +1,5 @@
 package ver0_1.Vocabulary;
 
-import org.jetbrains.annotations.Contract;
 
 import java.util.List;
 import java.util.Random;
@@ -12,19 +11,15 @@ import java.util.Random;
  * */
 public class VocabularyWithWords{
 
-    private List<Word> vocabulary;
+    private final List<Word> vocabulary;
 
-    @Contract(pure = true)
     public VocabularyWithWords(List<Word> list){
         vocabulary = list;
     }
 
     public Word getWordRND(){
-
         int rnd = new Random().nextInt(vocabulary.size());
         vocabulary.get(rnd).addWordShow();
         return vocabulary.get(rnd);
     }
-
-
 }

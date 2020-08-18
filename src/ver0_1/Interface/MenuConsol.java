@@ -6,7 +6,7 @@ import ver0_1.Vocabulary.VocabularyWithWords;
 
 public class MenuConsol {
 
-    private Consol consol = Consol.getConsole();
+    private final Consol consol = Consol.getConsole();
 
     public void menuConsoleVocabulary() {
         System.out.println("1 - будем работать в консоли с англо-русским словарем");
@@ -15,20 +15,20 @@ public class MenuConsol {
         while (true) {
             try {
                 switch (Integer.parseInt(consol.getConsoleString())) {
-                    case (1): {
+                    case (1) -> {
 
                         VocabularyWithWords vocabularyWithWords = new VocabularyWithWords(new TestVoc().getListEng_Rus());
                         Teacher teacher = new Teacher(vocabularyWithWords);
                         teacher.startInConsole();
                         return;
                     }
-                    case (2): {
+                    case (2) -> {
                         VocabularyWithWords vocabularyWithWords = new VocabularyWithWords(new TestVoc().getListRus_Eng());
                         Teacher teacher = new Teacher(vocabularyWithWords);
                         teacher.startInConsole();
                         return;
                     }
-                    case (3): {
+                    case (3) -> {
                         System.out.println("выходим");
                         return;
                     }

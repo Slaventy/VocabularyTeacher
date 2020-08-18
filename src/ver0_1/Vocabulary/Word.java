@@ -1,6 +1,5 @@
 package ver0_1.Vocabulary;
 
-import org.jetbrains.annotations.Contract;
 
 import java.util.List;
 
@@ -13,12 +12,11 @@ import java.util.List;
 
 public class Word {
 
-    private String word;//ключевое слово
-    private List<String> translate;//перевод - может содержать несколько слов
+    private final String word;//ключевое слово
+    private final List<String> translate;//перевод - может содержать несколько слов
     private int assessment = 0;//количество баллов за правильный(+1) и неправильный(-1) ответы
     private int wordShow = 0;//количество раз показанное пользователю
 
-    @Contract(pure = true)
     public Word(String word, List<String> translate){
         this.word = word;
         this.translate = translate;

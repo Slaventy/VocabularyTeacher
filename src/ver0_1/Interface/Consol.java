@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 /**Класс объединяет инструменты для работы с консолью*/
  public class Consol {
-     private Scanner scanner = new Scanner(System.in);
+     private final Scanner scanner = new Scanner(System.in);
      private static Consol consol;
 
 
