@@ -4,9 +4,9 @@ import ver0_1.Teacher.Teacher;
 import ver0_1.Tests.TestVoc;
 import ver0_1.Vocabulary.VocabularyWithWords;
 
-public class MenuConsol {
+public class MenuConsole {
 
-    private final Consol consol = Consol.getConsole();
+    private final Console console = Console.getConsole();
 
     public void menuConsoleVocabulary() {
         System.out.println("1 - будем работать в консоли с англо-русским словарем");
@@ -14,7 +14,7 @@ public class MenuConsol {
         System.out.println("3 - выход");
         while (true) {
             try {
-                switch (Integer.parseInt(consol.getConsoleString())) {
+                switch (Integer.parseInt(console.getConsoleString())) {
                     case (1) -> {
 
                         VocabularyWithWords vocabularyWithWords = new VocabularyWithWords(new TestVoc().getListEng_Rus());
@@ -34,7 +34,7 @@ public class MenuConsol {
                     }
                 }
             } catch (NumberFormatException ignored) {}
-            consol.clsConsole();
+            console.clsConsole();
             System.out.println("Введите номер выбранной позиции");
         }
     }

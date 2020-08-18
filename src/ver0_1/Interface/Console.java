@@ -4,29 +4,29 @@ import java.io.IOException;
 import java.util.Scanner;
 
 /**Класс объединяет инструменты для работы с консолью*/
- public class Consol {
+ public class Console {
      private final Scanner scanner = new Scanner(System.in);
-     private static Consol consol;
+     private static Console console;
 
 
-     private Consol(){}
+     private Console(){}
 
     /**получение объекта класса*/
-    public static Consol getConsole(){
-         if (consol == null){
-             consol = new Consol();
+    public static Console getConsole(){
+         if (console == null){
+             console = new Console();
          }
-        return consol;
+        return console;
     }
 
     /**получение строки*/
     public String getConsoleString(){
 //        StringBuilder string = new StringBuilder();
-//        while (consol.scanner.hasNext()){
-//            string.append(consol.scanner.next());
+//        while (console.scanner.hasNext()){
+//            string.append(console.scanner.next());
 //        }
 //        return string.toString();
-        return consol.scanner.next();//пока только по одному слову
+        return console.scanner.next();//пока только по одному слову
     }
 
     /**вывод на печать*/
